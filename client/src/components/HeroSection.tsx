@@ -87,15 +87,29 @@ export default function HeroSection() {
           </div>
 
           {/* Right: Photo */}
-          <div className="relative hidden md:block animate-slide-in stagger-1">
-            <div className="relative aspect-square">
+          <div className="relative order-first md:order-none block animate-slide-in stagger-1">
+            <div className="relative mx-auto aspect-square w-40 sm:w-52 md:w-full max-w-xs md:max-w-none">
               <div className="absolute inset-0 rounded-full border-2 border-accent/30 animate-pulse-glow"></div>
-              <div className="absolute inset-4 rounded-full border-2 border-secondary/20 animate-pulse-glow" style={{ animationDelay: "0.5s" }}></div>
-              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-accent/20 to-secondary/20 flex items-center justify-center overflow-hidden">
-                <img src="/WhatsApp_Image_2026-05-11_at_07.03.22.jpeg" alt="Pranav Kumar Singh" className="w-full h-full object-cover" />
+
+              <div
+                className="absolute inset-3 md:inset-4 rounded-full border-2 border-secondary/20 animate-pulse-glow"
+                style={{ animationDelay: "0.5s" }}
+              ></div>
+
+              <div className="absolute inset-6 md:inset-8 rounded-full bg-gradient-to-br from-accent/20 to-secondary/20 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/WhatsApp_Image_2026-05-11_at_07.03.22.jpeg"
+                  alt="Pranav Kumar Singh — AI Product Leader"
+                  className="w-full h-full object-cover object-center"
+                  loading="eager"
+                />
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-6 py-3 rounded-full font-semibold shadow-lg animate-float" style={{ animationDelay: "0.3s" }}>
+
+            <div
+              className="absolute -bottom-3 right-1/2 translate-x-1/2 md:-bottom-4 md:-right-4 md:translate-x-0 bg-accent text-accent-foreground px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-base font-semibold shadow-lg animate-float whitespace-nowrap"
+              style={{ animationDelay: "0.3s" }}
+            >
               AI Builder
             </div>
           </div>
