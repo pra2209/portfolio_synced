@@ -5,6 +5,7 @@ interface GitHubProject {
   description: string;
   tags: string[];
   url: string;
+  hasRepo: boolean;
 }
 
 const projects: GitHubProject[] = [
@@ -14,34 +15,39 @@ const projects: GitHubProject[] = [
       "6-agent system for customer feedback analysis and routing — Edureka capstone (Grade A). Automates feedback categorisation, sentiment analysis, priority scoring, and escalation routing end-to-end.",
     tags: ["CrewAI", "LangGraph", "AgentOps", "Streamlit", "Python"],
     url: "https://github.com/pra2209/",
+    hasRepo: false,
   },
   {
-    name: "RAG-Based Support Chatbot",
+    name: "Analytics FAQs Chatbot (RAG)",
     description:
-      "Answers enterprise support queries by dynamically retrieving context from an indexed knowledge base. Produces source-attributed responses — reducing average resolution lookup time significantly in testing.",
-    tags: ["LangChain", "OpenAI", "FAISS", "Python"],
-    url: "https://github.com/pra2209/",
+      "RAG-powered chatbot that answers enterprise analytics queries by dynamically retrieving context from an indexed knowledge base. Produces source-attributed responses — reducing average resolution lookup time significantly in testing.",
+    tags: ["Python", "RAG", "LangChain", "OpenAI"],
+    url: "https://github.com/pra2209/Analytics_FAQs_chatbot",
+    hasRepo: true,
   },
   {
-    name: "NLP Sentiment Analysis System",
+    name: "Automated IT Ticket Classifier",
     description:
-      "Multi-class sentiment classifier for customer feedback and social listening using zero-shot, few-shot, and chain-of-thought prompting. Achieves ~92% F1 score on positive / negative / neutral classification.",
-    tags: ["HuggingFace", "Python", "scikit-learn", "GenAI Prompting"],
-    url: "https://github.com/pra2209/",
+      "NLP system that automatically detects the category of IT incidents and allocates them to the right functional group for resolution — replacing a manual, error-prone process. Achieved 91% classification accuracy.",
+    tags: ["NLP", "Python", "scikit-learn", "Classification"],
+    url: "https://github.com/pra2209/Automated-Ticket-Assignment",
+    hasRepo: true,
   },
   {
-    name: "Image Classification Pipeline",
+    name: "Flower Image Classifier",
     description:
-      "Transfer learning-based image classifier identifying flowers across 17 categories with >80% accuracy — deployed with a user-friendly GUI for e-commerce vendors to upload and search product images.",
-    tags: ["PyTorch", "Computer Vision", "FastAPI", "Docker"],
-    url: "https://github.com/pra2209/",
+      "Transfer learning-based image classifier identifying flower species across 17 categories with >80% accuracy — deployed with a user-friendly GUI enabling e-commerce vendors to upload and search product images by species.",
+    tags: ["PyTorch", "Computer Vision", "Transfer Learning", "HTML"],
+    url: "https://github.com/pra2209/Flower_image_classification",
+    hasRepo: true,
   },
   {
-    name: "Handset Recommendation Engine",
+    name: "ML & Data Science Portfolio",
     description:
-      "Analyses customer preferences to surface top-10 handset recommendations using user-based CF, item-based CF, and popularity-based methods. SVD within collaborative filtering emerged as the most accurate approach.",
-    tags: ["SVD", "Collaborative Filtering", "Python", "scikit-learn"],
-    url: "https://github.com/pra2209/",
+      "End-to-end ML project collection from UT Austin & Great Lakes PG programme — including sentiment analysis (92% F1), handset recommendation engine using SVD/collaborative filtering, and customer preference modelling.",
+    tags: ["SVD", "Collaborative Filtering", "NLP", "Python", "scikit-learn"],
+    url: "https://github.com/pra2209/datascience",
+    hasRepo: true,
   },
 ];
 
@@ -58,7 +64,8 @@ export default function AIBuilderSection() {
             <span className="gradient-text">I build AI systems.</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-2xl mt-6">
-            Here's what I've built outside of work — hands-on expertise in agentic AI, RAG systems, NLP, computer vision, and ML pipelines.
+            Hands-on projects in agentic AI, RAG, NLP, computer vision, and ML — built outside
+            of work to sharpen the craft behind the product decisions.
           </p>
         </div>
 
@@ -74,21 +81,24 @@ export default function AIBuilderSection() {
             >
               <div className="card-hover h-full flex flex-col">
                 <div className="mb-4 flex items-start justify-between">
-                  <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-accent transition-colors flex-grow">
+                  <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-accent transition-colors flex-grow pr-2">
                     {project.name}
                   </h3>
-                  <Github className="w-5 h-5 text-accent flex-shrink-0 ml-2" />
+                  <Github className="w-5 h-5 text-accent flex-shrink-0" />
                 </div>
+
                 <p className="text-foreground/70 text-sm mb-6 flex-grow leading-relaxed">
                   {project.description}
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
                     <span key={tagIndex} className="badge-secondary text-xs">{tag}</span>
                   ))}
                 </div>
+
                 <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 gap-1 transition-all">
-                  View on GitHub
+                  {project.hasRepo ? "View on GitHub" : "View Profile"}
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -104,7 +114,7 @@ export default function AIBuilderSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-accent font-semibold hover:text-secondary transition-colors"
           >
-            View all on GitHub →
+            View all repositories on GitHub →
           </a>
         </div>
       </div>

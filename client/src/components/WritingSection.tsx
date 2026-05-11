@@ -1,178 +1,177 @@
 import { useState } from "react";
 import { Linkedin, ExternalLink } from "lucide-react";
 
-interface WritingPost {
-  id: string;
+type PostCategory = "All" | "AI & Product" | "Product Thinking" | "Wins & Milestones";
+
+interface Post {
   title: string;
   excerpt: string;
+  category: Exclude<PostCategory, "All">;
   date: string;
-  category: "all" | "product" | "ai" | "wins" | "podcasts";
-  source: "linkedin" | "medium" | "newsletter";
   url: string;
+  tags: string[];
 }
 
-const categories = [
-  { id: "all", label: "All" },
-  { id: "product", label: "Product Thinking" },
-  { id: "ai", label: "AI & Product" },
-  { id: "wins", label: "Wins & Milestones" },
-  { id: "podcasts", label: "Podcasts & Talks" },
+const posts: Post[] = [
+  {
+    title: "In the agentic era: stop chasing Level 5 autonomy — win with controllable Levels 1–4",
+    excerpt:
+      "The rise of agentic AI is a fundamental shift, but trust beats autonomy every time. As agentic workflows rise, PMs face a real question: will agents cannibalize your product? The answer: your UI isn't obsolete — it's becoming an intelligent partner. The winners will master both.",
+    category: "AI & Product",
+    date: "2025",
+    url: "https://www.linkedin.com/posts/pranav-singh_ai-saas-productmanagement-share-7376476369507184640-oxiv",
+    tags: ["#AgenticAI", "#ProductManagement", "#SaaS"],
+  },
+  {
+    title: "Honored to receive the Above and Beyond Gold Award at Freshworks — second year running",
+    excerpt:
+      "Sometimes the highest-leverage fix has nothing to do with AI. The solution was rethinking discoverability, reducing friction, and simplifying the experience. No models required. A platform that doesn't just show you what happened — but tells you what matters, why, and what to do about it.",
+    category: "Wins & Milestones",
+    date: "2025",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7320284709458976768/",
+    tags: ["#Freshworks", "#GenAI", "#EnterpriseAI"],
+  },
+  {
+    title: "The reframe that changed how I build AI analytics products",
+    excerpt:
+      "Customers don't want more data and visualizations staring at them. They want fewer actionable decisions, trust in making them, and clarity to execute. That reframing — from 'analyze these metrics' to 'tell me what I should care about and why' — fundamentally changed my product direction.",
+    category: "AI & Product",
+    date: "2024",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7239522823000465411/",
+    tags: ["#Analytics", "#GenAI", "#ProductManagement"],
+  },
+  {
+    title: "Advanced Analytics deep dive: what it takes to go beyond basic dashboards",
+    excerpt:
+      "Kicked off the first analytics learning session of the year covering advanced report personalization, constant lines for performance benchmarking, parent–child ticket relationships, time spent analysis in business vs. calendar hours, and a look at what's recently shipped and what's next.",
+    category: "Product Thinking",
+    date: "Jan 2025",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:6925034843286163457/",
+    tags: ["#Analytics", "#SaaS", "#DataDriven"],
+  },
+  {
+    title: "Deep learning & computer vision in production — what I built and what I learned",
+    excerpt:
+      "Transfer learning-based image classifier identifying 17 flower species with >80% accuracy, deployed with a user-friendly GUI for e-commerce vendors. Sharing key learnings on model selection, data augmentation, and deploying CV models that non-technical users can actually use.",
+    category: "AI & Product",
+    date: "2022",
+    url: "https://www.linkedin.com/posts/pranav-singh_deeplearning-computervision-ai-share-6871784129818624000-yVId",
+    tags: ["#DeepLearning", "#ComputerVision", "#AI"],
+  },
+  {
+    title: "NLP for automated IT ticket routing — 91% classification accuracy",
+    excerpt:
+      "Built an NLP system that automatically detects IT incident categories and routes them to the right resolution team — replacing a manual, error-prone process. Key learnings: text vectorisation, handling severe class imbalance, and building classifiers business teams actually trust.",
+    category: "AI & Product",
+    date: "2022",
+    url: "https://www.linkedin.com/posts/pranav-singh_ml-data-nlp-share-6882193090371731456-ut-M",
+    tags: ["#NLP", "#MachineLearning", "#AI"],
+  },
 ];
 
-const posts: WritingPost[] = [
-  {
-    id: "1",
-    title: "Why most enterprise AI features fail at adoption — and what I did differently",
-    excerpt:
-      "Building AI features is the easy part. Getting a support lead in a 300-person company to actually use it is the hard part. Here's what I learned...",
-    date: "Apr 2026",
-    category: "ai",
-    source: "linkedin",
-    url: "#",
-  },
-  {
-    id: "2",
-    title: "The query-session graph: How we moved $180M in GMV at Walmart",
-    excerpt:
-      "Search relevance isn't just about keywords. It's about understanding intent. Here's how we built a graph-based system that understood context...",
-    date: "Mar 2026",
-    category: "product",
-    source: "linkedin",
-    url: "#",
-  },
-  {
-    id: "3",
-    title: "Shipped: Freddy AI Summarizer — ≥56% engagement in 90 days",
-    excerpt:
-      "From concept to production in 3 months. Here's the product thinking behind an AI feature that actually gets used by analysts...",
-    date: "Feb 2026",
-    category: "wins",
-    source: "linkedin",
-    url: "#",
-  },
-  {
-    id: "4",
-    title: "Agentic AI for Enterprise Analytics: A 7-Agent Pipeline",
-    excerpt:
-      "Multi-agent systems aren't just hype. They're a practical tool for automating complex workflows. Here's how we built one for analytics...",
-    date: "Jan 2026",
-    category: "ai",
-    source: "linkedin",
-    url: "#",
-  },
-  {
-    id: "5",
-    title: "Toastmasters Talk: Communicating Complex Ideas to Non-Technical Stakeholders",
-    excerpt:
-      "As a PM, your ability to communicate is as important as your ability to think. Here's what I learned from Toastmasters...",
-    date: "Dec 2025",
-    category: "podcasts",
-    source: "linkedin",
-    url: "#",
-  },
-  {
-    id: "6",
-    title: "Mentoring 5,000+ PM candidates: What I've learned about career growth",
-    excerpt:
-      "Mentoring at scale taught me what separates good PMs from great ones. It's not what you think...",
-    date: "Nov 2025",
-    category: "wins",
-    source: "linkedin",
-    url: "#",
-  },
-];
+const categories: PostCategory[] = ["All", "AI & Product", "Product Thinking", "Wins & Milestones"];
 
 export default function WritingSection() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<PostCategory>("All");
 
-  const filteredPosts =
-    activeCategory === "all"
+  const filtered =
+    activeCategory === "All"
       ? posts
-      : posts.filter((post) => post.category === activeCategory);
+      : posts.filter((p) => p.category === activeCategory);
 
   return (
     <section id="writing" className="section">
       <div className="container max-w-6xl mx-auto">
-        {/* Section Header */}
+
+        {/* Header */}
         <div className="mb-12 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Writing & Thinking</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Writing & Thinking</h2>
           <p className="text-lg text-foreground/80 max-w-2xl">
-            Thoughts on product strategy, AI, career growth, and what I've learned building at scale.
+            Ideas on AI product management, enterprise analytics, and building at scale.
           </p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="mb-12 overflow-x-auto animate-fade-up stagger-1">
-          <div className="flex gap-3 pb-2 min-w-max md:min-w-0">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 rounded-full font-medium text-sm transition-all whitespace-nowrap ${
-                  activeCategory === category.id
-                    ? "bg-accent text-accent-foreground"
-                    : "bg-card text-foreground hover:bg-card/80"
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
+        {/* Category Filters */}
+        <div className="flex gap-2 mb-10 overflow-x-auto pb-2 animate-fade-up stagger-1">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                activeCategory === cat
+                  ? "bg-accent text-accent-foreground"
+                  : "bg-card border border-border/50 text-foreground/70 hover:border-accent/40 hover:text-foreground"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
         {/* Posts Grid */}
-        {filteredPosts.length > 0 ? (
-          <div className="grid md:grid-cols-2 gap-6">
-            {filteredPosts.map((post, index) => (
-              <a
-                key={post.id}
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="card-hover h-full flex flex-col animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  {/* Header */}
-                  <div className="flex items-start gap-3 mb-4">
-                    {post.source === "linkedin" && (
-                      <Linkedin className="w-5 h-5 text-accent flex-shrink-0" />
-                    )}
-                    <span className="badge-accent text-xs">{post.category}</span>
-                  </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {filtered.map((post, index) => (
+            <a
+              key={index}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <div className="card-hover h-full flex flex-col">
+                {/* Source + Category */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="flex items-center gap-1.5 text-xs font-medium text-accent">
+                    <Linkedin className="w-3.5 h-3.5" />
+                    LinkedIn
+                  </span>
+                  <span className="text-xs px-2 py-0.5 bg-accent/10 text-accent rounded-full font-medium">
+                    {post.category}
+                  </span>
+                </div>
 
-                  {/* Title */}
-                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
+                {/* Title */}
+                <h3 className="text-base font-bold text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">
+                  {post.title}
+                </h3>
 
-                  {/* Excerpt */}
-                  <p className="text-foreground/70 text-sm mb-6 flex-grow line-clamp-3 leading-relaxed">
-                    {post.excerpt}
-                  </p>
+                {/* Excerpt */}
+                <p className="text-foreground/60 text-sm leading-relaxed mb-4 flex-grow line-clamp-4">
+                  {post.excerpt}
+                </p>
 
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <span className="text-xs text-foreground/50">{post.date}</span>
-                    <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 gap-1 transition-all">
-                      Read
-                      <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {post.tags.map((tag, i) => (
+                    <span key={i} className="text-xs text-foreground/40 font-medium">{tag}</span>
+                  ))}
+                </div>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-3 border-t border-border/30">
+                  <span className="text-foreground/40 text-xs">{post.date}</span>
+                  <div className="flex items-center gap-1 text-accent text-xs font-semibold group-hover:gap-2 transition-all">
+                    Read on LinkedIn
+                    <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
-              </a>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-foreground/70 mb-6">No posts in this category yet.</p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 text-accent font-semibold hover:text-secondary transition-colors"
-            >
-              Follow on LinkedIn for updates →
+              </div>
             </a>
-          </div>
-        )}
+          ))}
+        </div>
+
+        {/* Follow CTA */}
+        <div className="text-center animate-fade-up stagger-2">
+          <a
+            href="https://www.linkedin.com/in/pranav-singh/recent-activity/all/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-accent font-semibold hover:text-secondary transition-colors"
+          >
+            <Linkedin className="w-4 h-4" />
+            See all posts on LinkedIn →
+          </a>
+        </div>
       </div>
     </section>
   );
