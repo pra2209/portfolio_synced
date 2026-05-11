@@ -29,6 +29,9 @@ export default function HeroSection() {
               <p className="text-lg md:text-xl text-foreground/80 max-w-md leading-relaxed">
                 Building enterprise intelligence at the intersection of GenAI and analytics. Lead PM at Freshworks, previously Walmart Search.
               </p>
+              <p className="mt-4 text-sm md:text-base text-muted-foreground">
+                MBA, SPJIMR · Cornell University Immersion · AI/ML, UT Austin McCombs
+              </p>
             </div>
 
             {/* Achievement credibility bar */}

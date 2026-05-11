@@ -15,7 +15,7 @@ export default function Home() {
     setPersonSchema({
       name: "Pranav Kumar Singh",
       title: "Lead Product Manager",
-      description: "Lead PM at Freshworks building GenAI and enterprise analytics products. 3× CPO recognised. $11M+ ARR in 8 months. Previously Lead PM at Walmart US Search ($180M GMV).",
+      description: "Lead PM at Freshworks building GenAI and enterprise analytics products. 3× CPO recognised. $11M+ ARR in 8 months. Previously Lead PM at Walmart US Search. MBA from SPJIMR with Cornell University immersion; AI/ML credential from University of Texas at Austin McCombs School of Business.",
       email: "pgp16.pranavs@spjimr.org",
       sameAs: [
         "https://linkedin.com/in/pranav-singh/",

@@ -28,8 +28,8 @@ const timeline = [
   {
     year: "2020",
     title: "PG — Artificial Intelligence & Machine Learning",
-    company: "UT Austin (US) & Great Lakes (India)",
-    description: "Deep Learning, NLP, Computer Vision, Recommender Systems · 10+ end-to-end projects (Nov'20 – Nov'21)",
+    company: "University of Texas at Austin — McCombs School of Business & Great Lakes",
+    description: "AI/ML, Deep Learning, NLP, Computer Vision, Recommender Systems · 10+ end-to-end projects (Nov'20 – Nov'21)",
   },
   {
     year: "2018",
@@ -40,8 +40,8 @@ const timeline = [
   {
     year: "2016",
     title: "MBA — Finance & Analytics",
-    company: "SPJIMR, Mumbai",
-    description: "National Best Internship Award · CFA Research Challenge finalist (top 4 of 17) · Cornell International Immersion 2017 (Jun'16 – Jun'18)",
+    company: "SPJIMR, Mumbai + Cornell University International Immersion",
+    description: "Global immersion at Cornell University · National Best Internship Award · CFA Research Challenge finalist, top 4 of 17 B-schools (Jun'16 – Jun'18)",
   },
   {
     year: "2013",
@@ -88,7 +88,8 @@ const certifications = [
   { name: "Leadership in AI", issuer: "ISB Hyderabad" },
   { name: "Agentic AI Engineer (Grade A)", issuer: "Edureka" },
   { name: "Azure AI Fundamentals", issuer: "Microsoft" },
-  { name: "PG — AI & Machine Learning", issuer: "UT Austin & Great Lakes" },
+  { name: "PG Program — Artificial Intelligence & Machine Learning", issuer: "University of Texas at Austin — McCombs School of Business & Great Lakes" },
+  { name: "International Immersion Program", issuer: "Cornell University" },
   { name: "Project Management Professional (PMP)", issuer: "PMI, US" },
   { name: "CFA Level 1", issuer: "CFA Institute" },
   { name: "Google Analytics", issuer: "Google" },
