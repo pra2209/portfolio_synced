@@ -129,7 +129,7 @@ export default function AboutSection() {
             <p>
               Across all three, I've been most effective where the job requires portfolio thinking
               paired with tight execution — AI and ML productisation, platform modernisation,
-              enterprise readiness, and cross-functional leadership with VP and Director-level
+              enterprise readiness, and cross-functional leadership with VP and CxO-level
               stakeholders.
             </p>
           </div>
