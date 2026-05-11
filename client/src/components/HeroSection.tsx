@@ -16,7 +16,7 @@ export default function HeroSection() {
       </div>
 
       <div className="container max-w-4xl mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left: Text */}
           <div className="space-y-8 animate-fade-up">
