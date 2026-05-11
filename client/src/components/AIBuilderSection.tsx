@@ -11,30 +11,37 @@ const projects: GitHubProject[] = [
   {
     name: "Agentic Customer Feedback Pipeline",
     description:
-      "6-agent system for customer feedback analysis and routing — Edureka capstone (Grade A). Automates feedback categorization, sentiment analysis, and escalation routing.",
-    tags: ["CrewAI", "Streamlit", "Python"],
-    url: "#",
+      "6-agent system for customer feedback analysis and routing — Edureka capstone (Grade A). Automates feedback categorisation, sentiment analysis, priority scoring, and escalation routing end-to-end.",
+    tags: ["CrewAI", "LangGraph", "AgentOps", "Streamlit", "Python"],
+    url: "https://github.com/pra2209/",
   },
   {
-    name: "RAG-Based Chatbot",
+    name: "RAG-Based Support Chatbot",
     description:
-      "Retrieval-augmented generation chatbot for enterprise support. Indexes knowledge base documents and provides context-aware responses with source attribution.",
-    tags: ["LangChain", "OpenAI", "FAISS"],
-    url: "#",
+      "Answers enterprise support queries by dynamically retrieving context from an indexed knowledge base. Produces source-attributed responses — reducing average resolution lookup time significantly in testing.",
+    tags: ["LangChain", "OpenAI", "FAISS", "Python"],
+    url: "https://github.com/pra2209/",
   },
   {
-    name: "NLP Sentiment Analysis",
+    name: "NLP Sentiment Analysis System",
     description:
-      "Multi-class sentiment classifier for customer feedback and social listening. Fine-tuned on domain-specific data with 94% accuracy on test set.",
-    tags: ["HuggingFace", "Python", "scikit-learn"],
-    url: "#",
+      "Multi-class sentiment classifier for customer feedback and social listening using zero-shot, few-shot, and chain-of-thought prompting. Achieves ~92% F1 score on positive / negative / neutral classification.",
+    tags: ["HuggingFace", "Python", "scikit-learn", "GenAI Prompting"],
+    url: "https://github.com/pra2209/",
   },
   {
     name: "Image Classification Pipeline",
     description:
-      "Transfer learning-based image classifier for product quality control. Deployed as REST API with real-time inference and batch processing capabilities.",
-    tags: ["PyTorch", "FastAPI", "Docker"],
-    url: "#",
+      "Transfer learning-based image classifier identifying flowers across 17 categories with >80% accuracy — deployed with a user-friendly GUI for e-commerce vendors to upload and search product images.",
+    tags: ["PyTorch", "Computer Vision", "FastAPI", "Docker"],
+    url: "https://github.com/pra2209/",
+  },
+  {
+    name: "Handset Recommendation Engine",
+    description:
+      "Analyses customer preferences to surface top-10 handset recommendations using user-based CF, item-based CF, and popularity-based methods. SVD within collaborative filtering emerged as the most accurate approach.",
+    tags: ["SVD", "Collaborative Filtering", "Python", "scikit-learn"],
+    url: "https://github.com/pra2209/",
   },
 ];
 
@@ -42,7 +49,8 @@ export default function AIBuilderSection() {
   return (
     <section id="ai-builder" className="section bg-card/30 border-t border-b border-border">
       <div className="container max-w-6xl mx-auto">
-        {/* Section Header */}
+
+        {/* Header */}
         <div className="mb-16 md:mb-20 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             I don't just ship AI features.
@@ -50,12 +58,12 @@ export default function AIBuilderSection() {
             <span className="gradient-text">I build AI systems.</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-2xl mt-6">
-            Here's what I've built outside of work. These projects showcase hands-on expertise in agentic AI, RAG systems, and production ML pipelines.
+            Here's what I've built outside of work — hands-on expertise in agentic AI, RAG systems, NLP, computer vision, and ML pipelines.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {projects.map((project, index) => (
             <a
               key={index}
@@ -65,34 +73,20 @@ export default function AIBuilderSection() {
               className="group"
             >
               <div className="card-hover h-full flex flex-col">
-                {/* Header */}
                 <div className="mb-4 flex items-start justify-between">
-                  <div className="flex-grow">
-                    <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-accent transition-colors">
-                      {project.name}
-                    </h3>
-                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-accent transition-colors flex-grow">
+                    {project.name}
+                  </h3>
                   <Github className="w-5 h-5 text-accent flex-shrink-0 ml-2" />
                 </div>
-
-                {/* Description */}
                 <p className="text-foreground/70 text-sm mb-6 flex-grow leading-relaxed">
                   {project.description}
                 </p>
-
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="badge-secondary text-xs"
-                    >
-                      {tag}
-                    </span>
+                    <span key={tagIndex} className="badge-secondary text-xs">{tag}</span>
                   ))}
                 </div>
-
-                {/* CTA */}
                 <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 gap-1 transition-all">
                   View on GitHub
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -102,10 +96,12 @@ export default function AIBuilderSection() {
           ))}
         </div>
 
-        {/* View All CTA */}
+        {/* View All */}
         <div className="text-center animate-fade-up stagger-2">
           <a
-            href="#"
+            href="https://github.com/pra2209/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-accent font-semibold hover:text-secondary transition-colors"
           >
             View all on GitHub →
