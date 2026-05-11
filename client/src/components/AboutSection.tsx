@@ -113,10 +113,24 @@ export default function AboutSection() {
             </p>
             <p>
               My north star isn't the model. It's the moment a support lead looks at a chart and
-              finally understands what it's telling her — without asking the data team. Recognised
-              3× by the Freshworks CPO (top 5% of 185+ PMs) and having shipped $11M+ in
-              incremental ARR across six launches in 8 months, I build AI products that enterprise
-              teams actually use.
+              finally understands what it's telling her — without asking the data team. That outcome
+              focus is what I bring to every portfolio I own: high-velocity experimentation, obsessive
+              instrumentation, and exec-friendly storytelling that aligns teams and unblocks decisions.
+            </p>
+            <p>
+              At Freshworks, I lead the Enterprise Analytics and GenAI portfolio across CX and ITSM.
+              In my first eight months, we shipped six major launches — recognised top 5% among 185+
+              PMs — and helped protect $11M+ in ARR by removing analytics friction and reliability
+              gaps. Before that, at Walmart, I led parts of US e-commerce search at massive scale:
+              retrieval and ranking improvements backed by A/B testing that delivered $180M+ in
+              annualised GMV impact. Earlier at Barclays, a cashback recommendation engine I shipped
+              generated £1MM in partner revenue in its first week.
+            </p>
+            <p>
+              Across all three, I've been most effective where the job requires portfolio thinking
+              paired with tight execution — AI and ML productisation, platform modernisation,
+              enterprise readiness, and cross-functional leadership with VP and Director-level
+              stakeholders.
             </p>
           </div>
         </div>
