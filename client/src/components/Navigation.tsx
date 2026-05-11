@@ -25,17 +25,23 @@ export default function Navigation() {
     }
   };
 
+  const handleLogoClick = () => {
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        {/* Logo */}
-        <a
-          href="#"
-          onClick={() => handleNavClick("#")}
+
+        {/* Logo — first name only, clean personal brand */}
+        <button
+          onClick={handleLogoClick}
           className="text-xl md:text-2xl font-bold text-accent hover:text-secondary transition-colors"
+          aria-label="Back to top"
         >
           Pranav
-        </a>
+        </button>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
@@ -64,7 +70,7 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {isOpen && (
         <div className="md:hidden bg-card border-t border-border">
           <div className="container py-4 space-y-2">

@@ -14,11 +14,11 @@ export default function ConnectSection() {
             <span className="gradient-text">worth talking about.</span>
           </h2>
 
-          {/* Description */}
+          {/* Description — diplomatic, no explicit job-seeking */}
           <p className="text-lg text-foreground/80 mb-12 max-w-2xl mx-auto">
-            Actively exploring Director and Principal PM roles at AI-first companies.
-            If you're building something interesting in enterprise AI, analytics, or
-            B2B SaaS — I'd love to learn more.
+            I'm always happy to connect with product leaders, researchers, and builders
+            working on hard problems in enterprise AI and analytics. If you're working on
+            something interesting, I'd love to hear about it.
           </p>
 
           {/* Contact Methods */}
@@ -32,9 +32,7 @@ export default function ConnectSection() {
               <div className="flex flex-col items-center">
                 <Mail className="w-8 h-8 text-accent mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-foreground/70 text-sm break-all">
-                  pgp16.pranavs@spjimr.org
-                </p>
+                <p className="text-foreground/70 text-sm break-all">pgp16.pranavs@spjimr.org</p>
               </div>
             </a>
 
@@ -70,13 +68,15 @@ export default function ConnectSection() {
           </div>
 
           {/* Resume Download */}
-          <div className="mb-12 animate-fade-up stagger-1">
+          <div className="mb-10 animate-fade-up stagger-1">
             <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-xl bg-card border border-accent/20 hover:border-accent/40 transition-all">
               <div className="flex items-center gap-3">
                 <FileText className="w-6 h-6 text-accent flex-shrink-0" />
                 <div className="text-left">
                   <p className="font-semibold text-foreground text-sm">Resume</p>
-                  <p className="text-foreground/60 text-xs">Lead PM · Freshworks · Ex-Walmart · Barclays · Oracle</p>
+                  <p className="text-foreground/60 text-xs">
+                    Lead PM · Freshworks · Ex-Walmart · Barclays · Oracle
+                  </p>
                 </div>
               </div>
               <a
@@ -90,28 +90,31 @@ export default function ConnectSection() {
             </div>
           </div>
 
-          {/* Additional Info */}
-          <div className="space-y-3 text-foreground/80 animate-fade-up stagger-2">
+          {/* Location info */}
+          <div className="space-y-3 text-foreground/80 mb-10 animate-fade-up stagger-2">
             <div className="flex items-center justify-center gap-2">
               <MapPin className="w-5 h-5 text-secondary flex-shrink-0" />
-              <p>Based in Bengaluru, India. Open to remote and global roles.</p>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <Calendar className="w-5 h-5 text-secondary flex-shrink-0" />
-              <p>Available for Director / Principal PM conversations.</p>
+              <p>Based in Bengaluru, India.</p>
             </div>
           </div>
 
-          {/* Calendly Placeholder */}
-          <div className="mt-12 p-6 bg-card rounded-lg border border-border/50 animate-fade-up stagger-3">
-            <p className="text-foreground/70 text-sm mb-4">
-              Prefer to schedule a time directly?
+          {/* Calendly scheduling */}
+          <div className="mt-4 p-6 bg-card rounded-lg border border-border/50 animate-fade-up stagger-3">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Calendar className="w-5 h-5 text-accent" />
+              <p className="text-foreground/80 font-medium">Prefer to find a time directly?</p>
+            </div>
+            <p className="text-foreground/60 text-sm mb-4">
+              Pick a slot that works for you — 30-minute conversations welcome.
             </p>
             <a
-              href="#"
-              className="inline-flex items-center gap-2 text-accent font-semibold hover:text-secondary transition-colors"
+              href="https://calendly.com/pgp16-pranavs/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-secondary transition-colors"
             >
-              Schedule a call → (coming soon)
+              <Calendar className="w-4 h-4" />
+              Schedule a 30-min call
             </a>
           </div>
 

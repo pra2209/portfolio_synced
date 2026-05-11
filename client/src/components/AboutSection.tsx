@@ -1,11 +1,11 @@
-import { CheckCircle2, Trophy, Award, BookOpen } from "lucide-react";
+import { Trophy, Award, BookOpen } from "lucide-react";
 
 const timeline = [
   {
     year: "2026",
     title: "Reforge — AI Product Suite",
     company: "Reforge",
-    description: "AI Prototyping · AI Evals · AI Product Leadership · AI Growth (concurrent, Apr–May 2026)",
+    description: "AI Prototyping · AI Evals · AI Product Leadership · AI Growth (Apr–May 2026)",
   },
   {
     year: "2025",
@@ -17,13 +17,13 @@ const timeline = [
     year: "2024",
     title: "Lead Product Manager",
     company: "Freshworks",
-    description: "Enterprise Analytics & GenAI — Freddy AI Summarizer, Multi-Agent Report Synthesis, AI Co-pilot, Analytics Bridge · $11M ARR in 8 months (Apr'24 – present)",
+    description: "Enterprise Analytics & GenAI — Freddy AI Summarizer, Multi-Agent Synthesis, AI Co-pilot, Analytics Bridge · $11M ARR in 8 months (Apr'24 – present)",
   },
   {
     year: "2020",
     title: "Lead Product Manager — Search & Discovery",
     company: "Walmart US",
-    description: "$180M GMV · Query-session graph · ML ranking · Data Privacy (Senior PM) · Bravo Award (Nov'20 – Apr'24)",
+    description: "$180M GMV · Query-session graph · ML ranking · Data Privacy · Bravo Award (Nov'20 – Apr'24)",
   },
   {
     year: "2020",
@@ -55,22 +55,22 @@ const awards = [
   {
     title: "3× CPO Gold Recognition",
     org: "Freshworks",
-    detail: "Top 5% of 185+ PMs — $11M+ incremental ARR in 8 months through six product launches including AI chart summary and data exports",
+    detail: "Top 5% of 185+ PMs — $11M+ incremental ARR in 8 months through six product launches",
   },
   {
     title: "Bravo Award",
     org: "Walmart",
-    detail: "Excellent data-driven analysis and product strategy for the Toys search category — query-session graph contributing $180M GMV",
+    detail: "Excellent data-driven analysis and product strategy for the Toys search category",
   },
   {
     title: "Impact Award",
     org: "Walmart",
-    detail: "Spearheaded Innovation Council for Walmart Chennai — organised 2 hackathons & networking events within 7 months of joining",
+    detail: "Innovation council leadership — organised 2 hackathons within 7 months of joining",
   },
   {
     title: "National Best Internship Award",
     org: "SPJIMR",
-    detail: "Among 250 B-schools — mobile app for microfinance institution achieving 20% increase in annual loan applications",
+    detail: "Among 250 B-schools — mobile app for microfinance institution (20% increase in loan applications)",
   },
   {
     title: "CFA Research Challenge",
@@ -95,24 +95,6 @@ const certifications = [
   { name: "Bloomberg Market Concepts", issuer: "Bloomberg" },
 ];
 
-const beliefs = [
-  {
-    title: "AI is a builder's tool, not a feature",
-    description:
-      "I don't just spec AI features — I build AI systems. From multi-agent pipelines to NL-to-formula translation, I prototype and validate before handing off to engineering.",
-  },
-  {
-    title: "Enterprise adoption comes from empathy",
-    description:
-      "The best analytics feature means nothing if analysts don't use it. I obsess over the moment a support lead finally understands what their data is telling her — without asking the data team.",
-  },
-  {
-    title: "Mentorship is part of the job",
-    description:
-      "I mentor PM candidates at Relevel (5,000+), coach at UT Austin and Great Lakes, and speak at Toastmasters. Growing the next generation of product leaders matters as much as the product itself.",
-  },
-];
-
 export default function AboutSection() {
   return (
     <section id="about" className="section bg-card/30 border-t border-b border-border">
@@ -132,9 +114,9 @@ export default function AboutSection() {
             <p>
               My north star isn't the model. It's the moment a support lead looks at a chart and
               finally understands what it's telling her — without asking the data team. Recognised
-              3× by Freshworks CPO (top 5% of 185+ PMs) and having shipped $11M+ in incremental
-              ARR across six launches in 8 months, I'm targeting Director / Principal PM roles at
-              AI-first companies.
+              3× by the Freshworks CPO (top 5% of 185+ PMs) and having shipped $11M+ in
+              incremental ARR across six launches in 8 months, I build AI products that enterprise
+              teams actually use.
             </p>
           </div>
         </div>
@@ -174,7 +156,7 @@ export default function AboutSection() {
             {awards.map((award, index) => (
               <div
                 key={index}
-                className="flex gap-4 p-4 rounded-lg bg-card border border-border/50 hover:border-accent/30 transition-colors animate-fade-up"
+                className="flex gap-4 p-4 rounded-lg bg-card border border-border/50 hover:border-accent/30 transition-colors"
                 style={{ animationDelay: `${index * 0.07}s` }}
               >
                 <Award className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -193,7 +175,7 @@ export default function AboutSection() {
         </div>
 
         {/* Certifications */}
-        <div className="mb-16 md:mb-20 animate-fade-up stagger-3">
+        <div className="animate-fade-up stagger-3">
           <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
             <BookOpen className="w-6 h-6 text-accent" />
             Certifications & Credentials
@@ -206,28 +188,6 @@ export default function AboutSection() {
               >
                 <p className="font-semibold text-foreground text-sm">{cert.name}</p>
                 <p className="text-foreground/50 text-xs mt-0.5">{cert.issuer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* What I Believe */}
-        <div className="animate-fade-up stagger-4">
-          <h3 className="text-2xl font-bold mb-8">What I Believe</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {beliefs.map((belief, index) => (
-              <div
-                key={index}
-                className="card-hover animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-semibold mb-2 text-foreground">{belief.title}</h4>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{belief.description}</p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
