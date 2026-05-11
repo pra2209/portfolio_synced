@@ -104,9 +104,6 @@ export default function WritingSection() {
         {/* Section Header */}
         <div className="mb-12 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Thinking & Perspectives</h2>
-          <p className="text-lg text-foreground/80 max-w-2xl">
-            Three convictions I build from. Six posts where I've worked them through.
-          </p>
         </div>
 
         {/* Beliefs — compact conviction row */}
